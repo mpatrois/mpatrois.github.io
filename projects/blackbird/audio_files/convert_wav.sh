@@ -1,0 +1,1 @@
+find . -type f -name "*.wav" -exec bash -c 'ffmpeg -i "$1" -c:a flac -sample_fmt s16 -compression_level 12 "${1%.wav}.flac" && rm "$1"' _ {} \;
