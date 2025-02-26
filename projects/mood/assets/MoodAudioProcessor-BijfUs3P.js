@@ -36,8 +36,7 @@ class MoodAudioProcessor extends AudioWorkletProcessor {
 
       if (action == 'all_note_off') processor.all_note_off(ptr)
 
-      if (action == 'set_osc_params')
-      {
+      if (action == 'set_osc_params') {
         processor.set_osc_params(
           ptr,
           value.osc_id,
@@ -60,44 +59,67 @@ class MoodAudioProcessor extends AudioWorkletProcessor {
       if (action == 'set_main_adsr')
         processor.set_main_adsr(ptr, value.attack, value.decay, value.sustain, value.release)
 
-      if (action == 'set_main_volume')
-      {
+      if (action == 'set_main_volume') {
         processor.set_main_volume(ptr, value.volume)
       }
 
-      if (action == 'set_mono_and_legato')
-      {
+      if (action == 'set_mono_and_legato') {
         processor.set_mono_and_legato(ptr, value.mono, value.legato)
       }
 
-      if (action == 'set_glide')
-      {
+      if (action == 'set_glide') {
         processor.set_glide(ptr, value.glide)
       }
 
-      if (action == 'set_reverb_params')
-      {
-        processor.set_reverb_params(ptr, value.enable_reverb, value.room_size, value.damping, value.wet_level, value.dry_level, value.width);
+      if (action == 'set_reverb_params') {
+        processor.set_reverb_params(
+          ptr,
+          value.enable_reverb,
+          value.room_size,
+          value.damping,
+          value.wet_level,
+          value.dry_level,
+          value.width,
+        )
       }
 
-      if (action == 'set_delay_params')
-      {
-        processor.set_delay_params(ptr, value.enable_delay, value.left_delay, value.right_ratio, value.feedback, value.tone, value.wet_mix);
+      if (action == 'set_delay_params') {
+        processor.set_delay_params(
+          ptr,
+          value.enable_delay,
+          value.left_delay,
+          value.right_ratio,
+          value.feedback,
+          value.tone,
+          value.wet_mix,
+        )
       }
 
-      if (action == 'set_eq3_params')
-      {
-        processor.set_eq3_params(ptr, value.enable_eq3, value.eq3_xover1_low_freq, value.eq3_xover2_high_freq, value.eq3_l_drive, value.eq3_m_drive, value.eq3_h_drive);
+      if (action == 'set_eq3_params') {
+        processor.set_eq3_params(
+          ptr,
+          value.enable_eq3,
+          value.eq3_xover1_low_freq,
+          value.eq3_xover2_high_freq,
+          value.eq3_l_drive,
+          value.eq3_m_drive,
+          value.eq3_h_drive,
+        )
       }
 
-      if (action == 'set_lfo_params')
-      {
-        processor.set_lfo_params(ptr, value.lfo_id, value.rate, value.depth, value.waveform, value.follow_modwheel);
+      if (action == 'set_lfo_params') {
+        processor.set_lfo_params(
+          ptr,
+          value.lfo_id,
+          value.rate,
+          value.depth,
+          value.waveform,
+          value.follow_modwheel,
+        )
       }
 
-      if (action == 'set_noise_volume')
-      {
-        processor.set_noise_volume(ptr, value.noise_volume);
+      if (action == 'set_noise_volume') {
+        processor.set_noise_volume(ptr, value.noise_volume)
       }
     }
   }
