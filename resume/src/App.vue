@@ -11,7 +11,7 @@ import IconGmail from './components/icons/IconGmail.vue';
       <h3 class="center">
         Developer with 8 years of experience.
         <div class="contact flex justify-center mt1">
-          <a  href="https://www.linkedin.com/in/emmanuel-p-716365a8/" target="_blank" class="contact-link flex items-center">
+          <a href="https://www.linkedin.com/in/emmanuel-p-716365a8/" target="_blank" class="contact-link flex items-center">
             <IconLinkedIn class="mr1"/>
           </a>
           <a class="contact-link flex items-center" target="_blank" href="mailto:emmanuel.patrois@gmail.com">

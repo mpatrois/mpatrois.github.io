@@ -70,7 +70,9 @@ import IconWebGPU from '@/components/icons/IconWeb_GPU.vue';
 
     <ProjectItem>
       <template #icon>
-        <img width="100%" src="@/assets/Celeste-2.5D.gif">
+        <a href="/projects/celeste/index.html">
+          <img width="100%" src="@/assets/Celeste-2.5D.gif">
+        </a>
       </template>
       <template #project-tile>
         <a href="/projects/celeste/index.html">Celeste Classic 2.5D</a>
@@ -111,7 +113,9 @@ import IconWebGPU from '@/components/icons/IconWeb_GPU.vue';
 
     <ProjectItem>
       <template #icon>
-        <img width="100%" src="@/assets/SOD.png" />
+        <a href="/projects/straight-outta-dungeon/index.html">
+          <img width="100%" src="@/assets/SOD.png" />
+        </a>
       </template>
       <template #project-tile>
         <a href="/projects/straight-outta-dungeon/index.html">Straight Outta Dungeon</a>
