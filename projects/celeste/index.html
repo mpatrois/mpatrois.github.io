@@ -11,7 +11,15 @@
   padding: none;
 }
 
-.emscripten { padding-right: 0; margin-left: auto; margin-right: auto; display: block; }
+.emscripten {
+  padding-right: 0;
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
 div.emscripten { text-align: center; }
 div.emscripten_border {
  border: 1px solid black;
@@ -124,14 +132,10 @@ canvas.emscripten { border: 0px none; background-color: black; }
       <progress value="0" max="100" id="progress" hidden=1></progress>
     </div>
 
-    <div class="emscripten_border">
-      <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" tabindex=-1></canvas>
-    </div>
-
-    <div class="flex flex-column justify-center items-center m2">
-      <div class="col-5">This game is under construction, but you can finish it.</div>
-      <div class="col-5">It's a clone of <a href="https://www.lexaloffle.com/bbs/?tid=2145">Celeste Classic</a>, is is mainly to learn WebGPU.</div>
-      <ul class="col-5">
+    <div style="position: absolute; left: 0px; top: 0px;" class="flex flex-column justify-center items-center m2">
+      <div class="col-12">This game is still in development, but you can finish it.</div>
+      <div class="col-12">It's a clone of <a href="https://www.lexaloffle.com/bbs/?tid=2145">Celeste Classic</a>, primarily created to learn WebGPU.</div>
+      <ul class="col-12">
         <li>X : jump</li>
         <li>C : dash</li>
         <li>J, I, K, L : move the camera (useless)</li>
@@ -139,6 +143,8 @@ canvas.emscripten { border: 0px none; background-color: black; }
         <li>You can also play with a controller</li>
       </ul>
     </div>
+
+    <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" tabindex=-1></canvas>
 
     <script type='text/javascript'>
       var statusElement = document.getElementById('status');
