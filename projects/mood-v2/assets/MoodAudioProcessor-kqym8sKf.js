@@ -3,10 +3,10 @@
 const DEFAULT_BLOCK_SIZE = 128
 
 class MoodAudioProcessor extends AudioWorkletProcessor {
-  constructor({ numberOfOutputs, processorOptions }) {
+  constructor({ outputChannelCount, processorOptions }) {
     super()
 
-    this.numberOfOutputs = numberOfOutputs
+    this.numberOfChannels = outputChannelCount[0]
     this.wasmProcessorInstance = null
     this.audioProcessorPtr = null
     this.arrayOfFloatArraysWasm = new Int32Array()
@@ -28,11 +28,11 @@ class MoodAudioProcessor extends AudioWorkletProcessor {
       const action = event.data.action
       const value = event.data.value
 
-      if (action == 'note-on') processor.note_on(ptr, value)
-      if (action == 'note-off') processor.note_off(ptr, value)
+      if (action == 'note-on') processor.note_on(ptr, value.note_id)
+      if (action == 'note-off') processor.note_off(ptr, value.note_id)
 
-      if (action == 'mod_wheel') processor.mod_wheel(ptr, value)
-      if (action == 'pitch_wheel') processor.pitch_wheel(ptr, value)
+      if (action == 'mod_wheel') processor.mod_wheel(ptr, value.modwheel)
+      if (action == 'pitch_wheel') processor.pitch_wheel(ptr, value.pitchwheel)
 
       if (action == 'all_note_off') processor.all_note_off(ptr)
 
@@ -77,9 +77,7 @@ class MoodAudioProcessor extends AudioWorkletProcessor {
           value.enable_reverb,
           value.room_size,
           value.damping,
-          value.wet_level,
-          value.dry_level,
-          value.width,
+          value.amount
         )
       }
 
@@ -88,10 +86,10 @@ class MoodAudioProcessor extends AudioWorkletProcessor {
           ptr,
           value.enable_delay,
           value.left_delay,
-          value.right_ratio,
+          value.ping_pong,
           value.feedback,
           value.tone,
-          value.wet_mix,
+          value.amount,
         )
       }
 
@@ -112,14 +110,27 @@ class MoodAudioProcessor extends AudioWorkletProcessor {
           ptr,
           value.lfo_id,
           value.rate,
+          value.bar_rate,
           value.depth,
           value.waveform,
           value.follow_modwheel,
+          value.tempo_sync,
+          value.target_pitch,
+          value.target_cutoff,
+          value.target_pan,
         )
       }
 
       if (action == 'set_noise_volume') {
         processor.set_noise_volume(ptr, value.noise_volume)
+      }
+
+      if (action == 'set_drive') {
+        processor.set_drive(ptr, value.drive)
+      }
+
+      if (action == 'set_pan') {
+        processor.set_pan(ptr, value.pan)
       }
     }
   }
@@ -132,7 +143,7 @@ class MoodAudioProcessor extends AudioWorkletProcessor {
     this.wasmProcessorInstance.exports.prepare(
       this.audioProcessorPtr,
       sampleRate,
-      this.numberOfOutputs,
+      this.numberOfChannels,
       DEFAULT_BLOCK_SIZE,
     )
 
@@ -145,11 +156,11 @@ class MoodAudioProcessor extends AudioWorkletProcessor {
       ),
     ]
 
-    const startByte = DEFAULT_BLOCK_SIZE * this.numberOfOutputs * Float32Array.BYTES_PER_ELEMENT
+    const startByte = DEFAULT_BLOCK_SIZE * this.numberOfChannels * Float32Array.BYTES_PER_ELEMENT
     this.arrayOfFloatArraysWasm = new Int32Array(
       this.wasmProcessorInstance.exports.memory.buffer,
       startByte,
-      this.numberOfOutputs,
+      this.numberOfChannels,
     )
     this.arrayOfFloatArraysWasm.set([
       this.outputsAllocatedInWasm[0].byteOffset,
@@ -159,19 +170,23 @@ class MoodAudioProcessor extends AudioWorkletProcessor {
     this.port.postMessage({ message: 'processor-ready' })
   }
 
-  process(inputList, outputList /* parameters */) {
+  process(inputList, outputs /* parameters */) {
     if (this.wasmProcessorInstance == null) return true
 
     this.wasmProcessorInstance.exports.process(
       this.audioProcessorPtr,
       this.arrayOfFloatArraysWasm.byteOffset,
       128,
-      this.numberOfOutputs,
+      this.numberOfChannels,
     )
 
-    outputList.forEach((output, index) => {
-      output[0].set(this.outputsAllocatedInWasm[index])
-    })
+    const output = outputs[0];
+    output.forEach((channel, c) => {
+      for (let i = 0; i < channel.length; i++) {
+        channel[i] = this.outputsAllocatedInWasm[c][i];
+      }
+    });
+  
 
     return true
   }
