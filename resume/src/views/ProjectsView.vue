@@ -35,7 +35,7 @@ import IconWebGPU from '@/components/icons/IconWeb_GPU.vue';
       A virtual analog synthesizer developed in C++ using the JUCE framework.<br>
       Available as a VST, AU, and Standalone application.<br>
       However, please note that I cannot distribute it at the moment as I do not have the required licenses. Send me an
-      email, and I will send you the VST, AU, or Standalone version according to your OS. <br><br>
+      message via Linkedin, and I will send you the VST, AU, or Standalone version according to your OS. <br><br>
       The audio engine has also been ported to WebAssembly and integrated with a completely redesigned UI built with
       Vue.js.<br>
       <a class="flex justify-start items-center" href="/projects/mood/index.html">

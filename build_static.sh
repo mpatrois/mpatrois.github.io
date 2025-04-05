@@ -1,15 +1,15 @@
 # mood-web
-git clone -b add-audio-engine git@github.com:mpatrois/tha-mood-web.git deps/tha-mood-web
+# git clone -b add-audio-engine git@github.com:mpatrois/tha-mood-web.git deps/tha-mood-web
 
-cd deps/tha-mood-web
-git pull
-npm install
-npm run build-only -- --base=/projects/mood
-cd ../..
-rm -rf projects/mood
-cp -R deps/tha-mood-web/dist projects/mood
+# cd deps/tha-mood-web
+# git pull
+# npm install
+# npm run build-only -- --base=/projects/mood
+# cd ../..
+# rm -rf projects/mood
+# cp -R deps/tha-mood-web/dist projects/mood
 
-# mood-web v2
+# mood-web
 git clone -b review_fx_chain git@github.com:mpatrois/tha-mood.git deps/tha-mood
 
 cd deps/tha-mood
@@ -17,10 +17,10 @@ git pull
 git submodule update --init
 cd mood_frontend
 npm install
-npm run build-web -- --base=/projects/mood-v2
+npm run build-web -- --base=/projects/mood
 cd ../../..
-rm -rf projects/mood-v2
-cp -R deps/tha-mood/mood_frontend/dist projects/mood-v2
+rm -rf projects/mood
+cp -R deps/tha-mood/mood_frontend/dist projects/mood
 
 # mood-web
 
