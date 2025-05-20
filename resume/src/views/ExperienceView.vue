@@ -24,7 +24,7 @@ import IconMicrosoftStore from '@/components/icons/IconMicrosoftStore.vue'
   <main>
     <JobItem>
       <template #icon>
-        <a class="flex justify-center" href="https://jouemusic.com">
+        <a class="logo-company-link flex justify-center" href="https://jouemusic.com">
           <img class="logo-company" src="@/assets/J-Music_logo_white_220x.avif" >
         </a>
       </template>
@@ -61,7 +61,7 @@ import IconMicrosoftStore from '@/components/icons/IconMicrosoftStore.vue'
 
     <JobItem>
       <template #icon>
-        <a class="flex justify-center" href="https://www.compagnie-fiduciaire.com/">
+        <a class="logo-company-link flex justify-center" href="https://www.compagnie-fiduciaire.com/">
           <img class="logo-company" src="@/assets/CF-Compagnie-Fiduciaire-blanc.svg">
         </a>
       </template>
@@ -95,7 +95,7 @@ import IconMicrosoftStore from '@/components/icons/IconMicrosoftStore.vue'
 
     <JobItem>
       <template #icon>
-        <a class="flex justify-center" href="https://www.compagnie-fiduciaire.com/">
+        <a class="logo-company-link flex justify-center" href="https://www.compagnie-fiduciaire.com/">
           <img class="logo-company" src="@/assets/CF-Compagnie-Fiduciaire-blanc.svg">
         </a>
       </template>
@@ -131,6 +131,10 @@ import IconMicrosoftStore from '@/components/icons/IconMicrosoftStore.vue'
 </template>
 
 <style scoped>
+.logo-company-link {
+  width: 100%;
+}
+
 .logo-company {
   width: 85%;
   height: auto;
