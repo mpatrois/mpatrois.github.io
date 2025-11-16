@@ -10,9 +10,10 @@
 # cp -R deps/tha-mood-web/dist projects/mood
 
 # mood-web
-git clone -b review_fx_chain git@github.com:mpatrois/tha-mood.git deps/tha-mood
+git clone -b main git@github.com:mpatrois/tha-mood.git deps/tha-mood
 
 cd deps/tha-mood
+git checkout main
 git pull
 git submodule update --init
 cd mood_frontend
