@@ -10,7 +10,14 @@
 # cp -R deps/tha-mood-web/dist projects/mood
 
 # mood-web
+git clone -b feature/song-demo  git@github.com:mpatrois/blackbird.git deps/blackbird
+cd ./deps/blackbird/
+
 git clone -b main git@github.com:mpatrois/tha-mood.git deps/tha-mood
+npm run build -- --base=/projects/blackbird
+cd ../../
+rm -rf projects/blackbird
+cp -R deps/blackbird/dist projects/blackbird
 
 cd deps/tha-mood
 git checkout main
