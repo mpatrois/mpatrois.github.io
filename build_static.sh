@@ -10,15 +10,7 @@
 # cp -R deps/tha-mood-web/dist projects/mood
 
 # mood-web
-git clone -b feature/song-demo  git@github.com:mpatrois/blackbird.git deps/blackbird
-cd ./deps/blackbird/
-
-git clone -b main git@github.com:mpatrois/tha-mood.git deps/tha-mood
-npm run build -- --base=/projects/blackbird
-cd ../../
-rm -rf projects/blackbird
-cp -R deps/blackbird/dist projects/blackbird
-
+git clone git@github.com:mpatrois/tha-mood.git deps/tha-mood
 cd deps/tha-mood
 git checkout main
 git pull
@@ -30,8 +22,7 @@ cd ../../..
 rm -rf projects/mood
 cp -R deps/tha-mood/mood_frontend/dist projects/mood
 
-# mood-web
-
+# straight-outta-dungeon
 git clone git@github.com:mpatrois/straight-outta-dungeon.git deps/straight-outta-dungeon
 cd deps/straight-outta-dungeon
 git pull
