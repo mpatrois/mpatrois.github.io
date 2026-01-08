@@ -104,6 +104,11 @@ class AudioProcessor extends AudioWorkletProcessor {
         this.wasmModule._togglePlay(this.wasmAudioProcessorPtr, value.playing)
       }
 
+      if (action == 'toggle-metronome')
+      {
+        this.wasmModule._setMetronomeActive(this.wasmAudioProcessorPtr, value.metronome_active)
+      }
+
       if (action == 'change-bpm')
       {
         this.wasmModule._changeBpm(this.wasmAudioProcessorPtr, value.bpm)
