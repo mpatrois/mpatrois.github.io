@@ -22,14 +22,25 @@ class AudioProcessor extends AudioWorkletProcessor {
 
     this.currentStep = 0;
 
-    const sharedMemory = new WebAssembly.Memory({
-      initial: 1024,
-      maximum: 1024,
-      shared: true
-    });
+    // github pages don't support crossOriginIsolated
+    // const sharedMemory = new WebAssembly.Memory({
+    //   initial: 1024,
+    //   maximum: 1024,
+    //   shared: true
+    // });
+    // it was better to use this :
+    // sendCurrentPattern() {
+    //   const pattern_data_ptr = this.wasmModule._serializePattern(this.wasmAudioProcessorPtr);
+    //   this.port.postMessage({
+    //     message: 'pattern',
+    //     value: {
+    //       buffer: this.wasmModule.HEAPU8.buffer,
+    //       offset: pattern_data_ptr
+    //     }
+    //   })
+    // }
 
     Module({
-      wasmMemory: sharedMemory,
       print: (text) => console.log("Wasm Log:", text),
       printErr: (text) => console.error("Wasm Error:", text)
     }).then((module) => {
@@ -64,23 +75,28 @@ class AudioProcessor extends AudioWorkletProcessor {
 
   sendCurrentPattern() {
     const pattern_data_ptr = this.wasmModule._serializePattern(this.wasmAudioProcessorPtr);
+    const pattern_data_size = this.wasmModule._patternSize(this.wasmAudioProcessorPtr);
+    const pattern_data = this.wasmModule.HEAPU8.slice(pattern_data_ptr, pattern_data_ptr + pattern_data_size);
     this.port.postMessage({
       message: 'pattern',
       value: {
-        buffer: this.wasmModule.HEAPU8.buffer,
-        offset: pattern_data_ptr
+        buffer: pattern_data.buffer,
+        offset: 0
       }
-    })
+    }, [pattern_data.buffer])
   }
+
   sendCurrentArrangement() {
     const arrangement_data_ptr = this.wasmModule._serializeArrangement(this.wasmAudioProcessorPtr);
+    const arrangement_data_size = this.wasmModule._arrangementSize(this.wasmAudioProcessorPtr);
+    const arrangement = this.wasmModule.HEAPU8.slice(arrangement_data_ptr, arrangement_data_ptr + arrangement_data_size);
     this.port.postMessage({
       message: 'arrangement',
       value: {
-        buffer: this.wasmModule.HEAPU8.buffer,
-        offset: arrangement_data_ptr
+        buffer: arrangement.buffer,
+        offset: 0
       }
-    })
+    }, [arrangement.buffer])
   }
 
   getJSAudioBuffer(bufferPtr, numChannels, blockSize) {
