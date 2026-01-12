@@ -198,6 +198,22 @@ class AudioProcessor extends AudioWorkletProcessor {
         this.wasmModule._previousPattern(this.wasmAudioProcessorPtr);
         this.sendCurrentPattern();
       }
+
+      if (action == 'note-on') {
+        this.wasmModule._noteOn(this.wasmAudioProcessorPtr, value.note_id, value.velocity);
+      }
+      
+      if (action == 'note-off') {
+        this.wasmModule._noteOff(this.wasmAudioProcessorPtr, value.note_id);
+      }
+      
+      if (action == 'all-notes-off') {
+        this.wasmModule._allNotesOff(this.wasmAudioProcessorPtr);
+      }
+     
+      if (action == 'toggle-arm-track') {
+        this.wasmModule._toggleArmTrack(this.wasmAudioProcessorPtr, value.track_id, value.armed);
+      }
     }
   }
 
