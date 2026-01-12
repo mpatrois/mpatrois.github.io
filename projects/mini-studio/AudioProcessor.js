@@ -46,14 +46,12 @@ class AudioProcessor extends AudioWorkletProcessor {
     }).then((module) => {
       this.wasmModule = module;
 
-      const now = Date.now();
       this.wasmAudioProcessorPtr = this.wasmModule._createProcessor(
         this.numberOfInputsChannels,
         this.numberOfOutputsChannels,
         DEFAULT_BLOCK_SIZE,
         sampleRate
       );
-      console.log((Date.now() - now));
 
       this.outputsPtr = this.wasmModule._getOutputBuffer(this.wasmAudioProcessorPtr);
       this.outputs = this.getJSAudioBuffer(this.outputsPtr, this.numberOfOutputsChannels, DEFAULT_BLOCK_SIZE);
