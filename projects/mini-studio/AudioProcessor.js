@@ -166,6 +166,10 @@ class AudioProcessor extends AudioWorkletProcessor {
       if (action == 'toggle-play') {
         this.wasmModule._togglePlay(this.wasmAudioProcessorPtr, value.playing)
       }
+      
+      if (action == 'toggle-record') {
+        this.wasmModule._toggleRecord(this.wasmAudioProcessorPtr, value.recording)
+      }
 
       if (action == 'clear-pattern-track') {
         this.wasmModule._clearCurrentPatternTrack(this.wasmAudioProcessorPtr, value.track_id);
@@ -182,6 +186,11 @@ class AudioProcessor extends AudioWorkletProcessor {
 
       if (action == 'change-bpm') {
         this.wasmModule._changeBpm(this.wasmAudioProcessorPtr, value.bpm);
+      }
+
+      if (action == 'change-quantize') {
+        console.log(value.quantize);
+        this.wasmModule._changeQuantize(this.wasmAudioProcessorPtr, value.quantize);
       }
       
       if (action == 'change-nb-steps') {
@@ -201,10 +210,12 @@ class AudioProcessor extends AudioWorkletProcessor {
 
       if (action == 'note-on') {
         this.wasmModule._noteOn(this.wasmAudioProcessorPtr, value.note_id, value.velocity);
+        this.sendCurrentPattern();
       }
       
       if (action == 'note-off') {
         this.wasmModule._noteOff(this.wasmAudioProcessorPtr, value.note_id);
+        this.sendCurrentPattern();
       }
       
       if (action == 'all-notes-off') {
