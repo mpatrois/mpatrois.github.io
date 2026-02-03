@@ -10,16 +10,12 @@
       <h4>
         <slot name="short-description"></slot>
       </h4>
-      <h5>
-        <slot name="time"></slot>
-      </h5>
       <slot></slot>
     </div>
   </div>
 </template>
 
 <style scoped>
-
 .card-project {
   display: flex;
   flex-direction: row;
@@ -41,5 +37,4 @@ h3 {
   margin-bottom: 0.4rem;
   color: var(--color-heading);
 }
-
 </style>

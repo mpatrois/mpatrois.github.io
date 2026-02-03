@@ -18,6 +18,48 @@ import IconWebGPU from '@/components/icons/IconWeb_GPU.vue';
   <main class="project-view mt2">
     <ProjectItem>
       <template #icon>
+        <a href="/projects/dex-fm/index.html">
+          <img width="100%" src="@/assets/DEX-FM.png">
+        </a>
+      </template>
+      <template #project-tile>
+        <a href="/projects/dex-fm/index.html">DEX-FM Synthesizer</a>
+      </template>
+      <template #short-description>
+        Synthesizer project
+      </template>
+
+      I reused the code from the famous Dexed repository to include it in a DAW that I'm making. While I was making the
+      UI, I
+      thought it would be cool to have it in standalone mode too.
+
+      <a class="flex justify-start items-center" href="/projects/dex-fm/index.html">
+        <span class="mr1">Web Demo</span>
+        <IconGoTo />
+      </a>
+      <div>
+        <h4 class="bold mt1 mb1">Tech stack :</h4>
+        <ul class="tech-stack-list flex flex-wrap justify-left">
+          <li class="flex mr2 items-center">
+            <IconCpp class="mr1" />C++
+          </li>
+          <li class="flex mr2 items-center">
+            <IconCMake class="mr1" />CMake
+          </li>
+          <li class="flex mr2 items-center">
+            <IconWebAssembly class="mr1" />WebAssembly
+          </li>
+          <li class="flex mr2 items-center">
+            <IconVue class="mr1" />Vue.js
+          </li>
+          <li class="flex mr2 items-center">
+            <IconJS class="mr1" />JavaScript
+          </li>
+        </ul>
+      </div>
+    </ProjectItem>
+    <ProjectItem>
+      <template #icon>
         <a href="/projects/mood/index.html">
           <img width="100%" src="@/assets/Tha-Mood-Preview.png">
         </a>
@@ -28,16 +70,12 @@ import IconWebGPU from '@/components/icons/IconWeb_GPU.vue';
       <template #short-description>
         Synthesizer project
       </template>
-      <template #time>
-        January 2025
-      </template>
 
       A virtual analog synthesizer developed in C++ using the JUCE framework.<br>
       Available as a VST, AU, and Standalone application.<br>
       However, please note that I cannot distribute it at the moment as I do not have the required licenses. Send me an
-      message via Linkedin, and I will send you the VST, AU, or Standalone version according to your OS. <br><br>
-      The audio engine has also been ported to WebAssembly and integrated with a completely redesigned UI built with
-      Vue.js.<br>
+      message via Linkedin, and I will send you the VST, AU, or Standalone version according to your OS. <br>
+      <br>
       <a class="flex justify-start items-center" href="/projects/mood/index.html">
         <span class="mr1">Web Demo</span>
         <IconGoTo />
@@ -67,6 +105,45 @@ import IconWebGPU from '@/components/icons/IconWeb_GPU.vue';
         </ul>
       </div>
     </ProjectItem>
+    <ProjectItem>
+      <template #icon>
+        <a href="/projects/sequencer/index.html">
+          <img width="100%" src="@/assets/Step-Sequencer.png">
+        </a>
+      </template>
+      <template #project-tile>
+        <a href="/projects/sequencer/index.html">Sequencer</a>
+      </template>
+      <template #short-description>
+        Sequencer project
+      </template>
+
+      A straightforward step sequencer that works much like FL Studio’s.
+      <a class="flex justify-start items-center" href="/projects/sequencer/index.html">
+        <span class="mr1">Web Demo</span>
+        <IconGoTo />
+      </a>
+      <div>
+        <h4 class="bold mt1 mb1">Tech stack :</h4>
+        <ul class="tech-stack-list flex flex-wrap justify-left">
+          <li class="flex mr2 items-center">
+            <IconCpp class="mr1" />C++
+          </li>
+          <li class="flex mr2 items-center">
+            <IconCMake class="mr1" />CMake
+          </li>
+          <li class="flex mr2 items-center">
+            <IconWebAssembly class="mr1" />WebAssembly
+          </li>
+          <li class="flex mr2 items-center">
+            <IconVue class="mr1" />Vue.js
+          </li>
+          <li class="flex mr2 items-center">
+            <IconJS class="mr1" />JavaScript
+          </li>
+        </ul>
+      </div>
+    </ProjectItem>
 
     <ProjectItem>
       <template #icon>
@@ -79,9 +156,6 @@ import IconWebGPU from '@/components/icons/IconWeb_GPU.vue';
       </template>
       <template #short-description>
         Celeste clone (WebGPU experiment)
-      </template>
-      <template #time>
-        December 2024
       </template>
 
       A WebGPU experiment, a reimplementation of <a href="https://www.lexaloffle.com/bbs/?tid=2145">Celeste Classic</a>
@@ -122,9 +196,6 @@ import IconWebGPU from '@/components/icons/IconWeb_GPU.vue';
       </template>
       <template #short-description>
         A simple game made for fun.
-      </template>
-      <template #time>
-        June 2019
       </template>
       <a class="flex justify-start items-center" href="/projects/straight-outta-dungeon/index.html">
         <span class="mr1">Play the game</span>

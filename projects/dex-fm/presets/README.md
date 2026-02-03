@@ -1,0 +1,1 @@
+All ROMS comes from https://yamahablackboxes.com/collection/yamaha-dx7-synthesizer/patches/#factory
