@@ -18,6 +18,45 @@ import IconWebGPU from '@/components/icons/IconWeb_GPU.vue';
   <main class="project-view mt2">
     <ProjectItem>
       <template #icon>
+        <img width="100%" src="@/assets/jackdaw.gif">
+      </template>
+      <template #project-tile>
+        Jackdaw (WIP)
+      </template>
+      <template #short-description>
+        DAW project
+      </template>
+
+      I am currently developing a web-based DAW written in C++ (compiled to WebAssembly),
+      designed to support external plugins. I’ve decided to hold off on the official release until
+      the core features meet my standards.
+      I am also refining the user experience; I’m currently transitioning from a pattern-based
+      workflow to a full arrangement-oriented system. So far, I have integrated three instruments: a
+      sampler (mostly for drum kits), DEX-FM, and Tha Mood.
+
+      <div>
+        <h4 class="bold mt1 mb1">Tech stack :</h4>
+        <ul class="tech-stack-list flex flex-wrap justify-left">
+          <li class="flex mr2 items-center">
+            <IconCpp class="mr1" />C++
+          </li>
+          <li class="flex mr2 items-center">
+            <IconCMake class="mr1" />CMake
+          </li>
+          <li class="flex mr2 items-center">
+            <IconWebAssembly class="mr1" />WebAssembly
+          </li>
+          <li class="flex mr2 items-center">
+            <IconVue class="mr1" />Vue.js
+          </li>
+          <li class="flex mr2 items-center">
+            <IconJS class="mr1" />JavaScript
+          </li>
+        </ul>
+      </div>
+    </ProjectItem>
+    <ProjectItem>
+      <template #icon>
         <a href="/projects/dex-fm/index.html">
           <img width="100%" src="@/assets/DEX-FM.png">
         </a>
