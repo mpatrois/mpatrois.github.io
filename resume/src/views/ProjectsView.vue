@@ -30,9 +30,9 @@ import IconWebGPU from '@/components/icons/IconWeb_GPU.vue';
       I am currently developing a web-based DAW written in C++ (compiled to WebAssembly),
       designed to support external plugins. I’ve decided to hold off on the official release until
       the core features meet my standards.
-      I am also refining the user experience; I’m currently transitioning from a pattern-based
-      workflow to a full arrangement-oriented system. So far, I have integrated three instruments: a
-      sampler (mostly for drum kits), DEX-FM, and Tha Mood.
+      I am also transitioning from a pattern-based workflow to a full arrangement-oriented system.
+      So far, I have integrated three instruments: a sampler (mostly for drum kits), DEX-FM, and
+      Tha Mood.
 
       <div>
         <h4 class="bold mt1 mb1">Tech stack :</h4>
