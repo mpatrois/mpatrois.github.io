@@ -29,9 +29,9 @@ import IconWebGPU from '@/components/icons/IconWeb_GPU.vue';
         Synthesizer project
       </template>
 
-      I reused the code from the famous Dexed repository to include it in a DAW that I'm making. While I was making the
-      UI, I
-      thought it would be cool to have it in standalone mode too.
+      I integrated the sound engine from the renowned Dexed repository into my custom DAW.
+      While designing the UI, I decided to implement a standalone mode as well.
+      The application features full support for both MIDI controllers and computer keyboard input.
 
       <a class="flex justify-start items-center" href="/projects/dex-fm/index.html">
         <span class="mr1">Web Demo</span>
@@ -140,6 +140,48 @@ import IconWebGPU from '@/components/icons/IconWeb_GPU.vue';
           </li>
           <li class="flex mr2 items-center">
             <IconJS class="mr1" />JavaScript
+          </li>
+        </ul>
+      </div>
+    </ProjectItem>
+    <ProjectItem>
+      <template #icon>
+        <a href="/projects/blackbird/index.html">
+          <img width="100%" src="@/assets/Blackbird.png">
+        </a>
+      </template>
+      <template #project-tile>
+        <a href="/projects/blackbird/index.html">Blackbird</a>
+      </template>
+      <template #short-description>
+        Singing tool
+      </template>
+
+      Blackbird is a project designed to visualize vocal pitch in real-time while providing examples
+      from famous songs. I used the Dynamic Wavelet algorithm.
+      The UI is intentionally minimalist and is optimized for desktop use rather than mobile.
+
+      <a class="flex justify-start items-center" href="/projects/blackbird/index.html">
+        <span class="mr1">Web Demo</span>
+        <IconGoTo />
+      </a>
+      <div>
+        <h4 class="bold mt1 mb1">Tech stack :</h4>
+        <ul class="tech-stack-list flex flex-wrap justify-left">
+          <li class="flex mr2 items-center">
+            <IconCpp class="mr1" />C++
+          </li>
+          <li class="flex mr2 items-center">
+            <IconCMake class="mr1" />CMake
+          </li>
+          <li class="flex mr2 items-center">
+            <IconWebAssembly class="mr1" />WebAssembly
+          </li>
+          <li class="flex mr2 items-center">
+            <IconVue class="mr1" />Vue.js
+          </li>
+          <li class="flex mr2 items-center">
+            <IconJS class="mr1" />React
           </li>
         </ul>
       </div>
